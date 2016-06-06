@@ -20,4 +20,8 @@ class EventsController < ApplicationController
   def index
     render nothing: true
   end
+
+  def json
+    render json: Event.analytics
+  end
 end

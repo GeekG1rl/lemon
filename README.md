@@ -28,14 +28,14 @@ $ go run llirdnam.go http://localhost:9000/event
 
 Analytics:
 ```
-http://localhost:9000/analytics
+http://localhost:9000/analytics/json
 ```
 
 
 Technologies
 ------------
 * Rails 4.2.6
-* DataMapper
+* ActiveRecord
 * PostgreSQL
 * RSpec
 * Capybara
@@ -43,4 +43,4 @@ Technologies
 
 Ideas for extending the app
 ---------------------------
-
+* make it look pretty
