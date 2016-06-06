@@ -23,12 +23,12 @@ $ bin/rails s
 
 Open another terminal window:
 ```
-$ go run llirdnam.go http://localhost:9000/email_analytics
+$ go run llirdnam.go http://localhost:9000/event
 ```
 
 Analytics:
 ```
-http://localhost:9000
+http://localhost:9000/analytics
 ```
 
 
