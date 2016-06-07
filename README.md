@@ -43,4 +43,5 @@ Technologies
 
 Ideas for extending the app
 ---------------------------
-* make it look pretty
+
+* I chose to return analytics data as JSON so other developers can hook in and display as they see fit
