@@ -1,11 +1,12 @@
-require 'rails_helper'
+require "rails_helper"
 
-describe Event, type: :model do 
-  let!(:event) do
-    event.create(email_address: "mara@gmail.com", 
-      email_type: "Order", event: "send", timestamp: "1465373709")
+RSpec.describe "Receive an event", :type => :request do
+
+  it "receives an event in json format" do
+    headers = { "CONTENT_TYPE" => "text/json" }
+    post "/event", '{"Address":"barney@lostmy.name","EmailType":"Shipment","Event":"send","Timestamp":1432820696}', headers
+    expect(response).to have_http_status(:success)
   end
+
 end
 
-
-    

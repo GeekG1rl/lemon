@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def receive
-    fail 'invalid Content-Type' unless request.headers['Content-Type'] == 'application/json' || 'text/json'
+    fail 'invalid Content-Type' unless request.headers['Content-Type'] == 'text/json'
     data = JSON.parse(request.body.read)
 
     event = Event.new({
