@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  attr_reader :rates
+  attr_reader :calculate_rates
   validates :email_address, presence: true
   validates :email_type, presence: true
   validates :event, presence: true
@@ -11,12 +13,16 @@ class Event < ActiveRecord::Base
     types.each do |t|
       rates << {
         email_type: t.email_type,
-        send: self.where("event = 'send' and email_type = '" + t.email_type + "'").count,
-        open: self.where("event = 'open' and email_type = '" + t.email_type + "'").count,
-        click: self.where("event = 'click' and email_type = '" + t.email_type + "'").count
+        send: self.where(event: 'send', email_type: t.email_type).count,
+        open: self.where(event: 'open', email_type: t.email_type).count,
+        click: self.where(event: 'click', email_type: t.email_type).count
       }
     end
 
+    self.calculate_rates(rates)
+  end
+
+  def self.calculate_rates(rates)
     rates.each do |r|
       r[:open_rate] = 0.0
       r[:click_rate] = 0.0
