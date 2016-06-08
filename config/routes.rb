@@ -2,11 +2,10 @@ Rails.application.routes.draw do
 
   resource :events
 
-  root 'events#index'
+  root 'events#json'
 
   post 'event' => 'events#receive'
 
-  get 'analytics/json' => 'events#json'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

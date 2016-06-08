@@ -23,12 +23,13 @@ $ bin/rails s
 
 Open another terminal window:
 ```
+$ cd llirdnam-master/llirdnam
 $ go run llirdnam.go http://localhost:9000/event
 ```
 
 Analytics:
 ```
-http://localhost:9000/analytics/json
+http://localhost:9000
 ```
 
 

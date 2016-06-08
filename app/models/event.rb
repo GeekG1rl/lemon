@@ -5,15 +5,15 @@ class Event < ActiveRecord::Base
   validates :timestamp, presence: true
 
   def self.rates
-    types = Event.select(:email_type).distinct
+    types = self.select(:email_type).distinct
 
     rates = []
     types.each do |t|
       rates << {
         email_type: t.email_type,
-        send: Event.where("event = 'send' and email_type = '" + t.email_type + "'").count,
-        open: Event.where("event = 'open' and email_type = '" + t.email_type + "'").count,
-        click: Event.where("event = 'click' and email_type = '" + t.email_type + "'").count
+        send: self.where("event = 'send' and email_type = '" + t.email_type + "'").count,
+        open: self.where("event = 'open' and email_type = '" + t.email_type + "'").count,
+        click: self.where("event = 'click' and email_type = '" + t.email_type + "'").count
       }
     end
 
@@ -32,11 +32,11 @@ class Event < ActiveRecord::Base
 
   def self.analytics
     {
-      total_events: Event.count,
-      sent_emails: Event.all.group(:event).count["send"],
-      clicks: Event.all.group(:event).count["click"],
-      emails_opened: Event.all.group(:event).count["open"],
-      rates: Event.rates
+      total_events: self.count,
+      sent_emails: self.all.group(:event).count["send"],
+      clicks: self.all.group(:event).count["click"],
+      emails_opened: self.all.group(:event).count["open"],
+      rates: self.rates
     }
   end
 end
