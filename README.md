@@ -33,16 +33,16 @@ http://localhost:9000
 ```
 
 
-Technologies
+Technologiess
 ------------
 * Rails 4.2.6
 * ActiveRecord
-* PostgreSQL
+* PostgreSQL - you'll need this set up on your machine 
 * RSpec
 * Capybara
 
 
 Ideas for extending the app
 ---------------------------
-
 * I chose to return analytics data as JSON so other developers can hook in and display as they see fit
+* I recommend using the Chrome extension JSONView, which prettifies the output in the browser

@@ -24,8 +24,8 @@ class Event < ActiveRecord::Base
 
   def self.calculate_rates(rates)
     rates.each do |r|
-      r[:open_rate] = 0.0
-      r[:click_rate] = 0.0
+      r[:open_rate] = 0
+      r[:click_rate] = 0
 
       unless r[:send] == 0
         r[:open_rate] = (r[:open] / r[:send].to_f).round(2)
