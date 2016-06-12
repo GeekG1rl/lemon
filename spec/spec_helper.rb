@@ -2,7 +2,7 @@ require 'simplecov'
 require 'coveralls'
 
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-SimpleCov.start do
+SimpleCov.start 'rails' do
   add_filter 'app/secrets'
 end
 
@@ -15,5 +15,3 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 end
-
-
