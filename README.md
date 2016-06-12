@@ -48,3 +48,4 @@ Ideas for extending the app
 ---------------------------
 * I chose to return analytics data as JSON so other developers can hook in and display as they see fit
 * I recommend using the Chrome extension JSONView, which prettifies the output in the browser
+* Emails types haven't been hardcoded and could be simply extended for a new event such as "4thBirthdayInvite"

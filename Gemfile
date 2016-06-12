@@ -12,7 +12,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rubocop', '~> 0.40.0', require: false
 gem 'coveralls', require: false
 
+
 group :development, :test do
+  gem 'simplecov', :require => false, :group => :test
   gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'

@@ -36,7 +36,8 @@ describe "Receive an event", type: :request do
                                                 open: 128,
                                                 click: 24,
                                                 open_rate: 0.56,
-                                                click_rate: 0.11])
+                                                click_rate: 0.11
+                                                ])
   end
 
   it "doesn't calculate rates if there were no emails sent" do
@@ -52,7 +53,8 @@ describe "Receive an event", type: :request do
                                                 open: 0,
                                                 click: 0,
                                                 open_rate: 0,
-                                                click_rate: 0])
+                                                click_rate: 0
+                                                ])
   end
 
 end

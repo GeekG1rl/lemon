@@ -1,5 +1,10 @@
+require 'simplecov'
 require 'coveralls'
-Coveralls.wear!('rails')
+
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start do
+  add_filter 'app/secrets'
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
