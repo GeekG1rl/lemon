@@ -5,6 +5,8 @@ Lemon uses Mandrill webhooks to capture email event data and performs analytics 
 
 Installation
 ------------
+You'll need Golang and PostgreSQL set up on your machine. 
+
 ```
 $ git clone https://github.com/GeekG1rl/lemon
 $ cd lemon
@@ -37,7 +39,7 @@ Technologiess
 ------------
 * Rails 4.2.6
 * ActiveRecord
-* PostgreSQL - you'll need this set up on your machine 
+* PostgreSQL
 * RSpec
 * Capybara
 

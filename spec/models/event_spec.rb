@@ -23,4 +23,36 @@ describe "Receive an event", type: :request do
     expect(Event.last[:timestamp]).to eq(1465328158)
   end
 
+  it 'calculates the rates and rounds to two decimal points' do
+    rates = [{email_type: "Order",
+              send: 227,
+              open: 128,
+              click: 24,
+              open_rate: 0,
+              click_rate: 0
+              }]
+    expect(Event.calculate_rates(rates)).to eq([email_type: "Order",
+                                                send: 227,
+                                                open: 128,
+                                                click: 24,
+                                                open_rate: 0.56,
+                                                click_rate: 0.11])
+  end
+
+  it "doesn't calculate rates if there were no emails sent" do
+    rates = [{email_type: "Order",
+              send: 0,
+              open: 0,
+              click: 0,
+              open_rate: 0.56,
+              click_rate: 0.11
+              }]
+    expect(Event.calculate_rates(rates)).to eq([email_type: "Order",
+                                                send: 0,
+                                                open: 0,
+                                                click: 0,
+                                                open_rate: 0,
+                                                click_rate: 0])
+  end
+
 end
